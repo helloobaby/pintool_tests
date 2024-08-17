@@ -1,0 +1,9 @@
+162e;section: [.text]
+1d4b;kernel32.IsProcessorFeaturePresent
+1d68;CPUID:0
+1da3;CPUID:1
+1e1a;CPUID:7
+1a55;ntdll.RtlInitializeSListHead
+1c2c;kernel32.SetUnhandledExceptionFilter
+103f;ntdll.KiUserExceptionDispatcher
+1be6;kernel32.GetModuleHandleW

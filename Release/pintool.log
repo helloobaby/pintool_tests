@@ -1,0 +1,53 @@
+Pin: pin-3.28-98749-6643ecee5
+Copyright 2002-2023 Intel Corporation.
+ [tid:22488] Get app_name D:\workspace\pintool_tests\Release\getCurIp.exe [tid:22488] Loaded 0 stop offsets
+ [tid:22488] Excluded 7 functions
+ [tid:22488] Watch 7 functions
+ [tid:22488] Watch 0 syscalls
+ [tid:22488] SyscallTable size: 1706
+ [tid:22488] Section .text Start 0x1000 0x2082
+ [tid:22488] Section .rdata Start 0x3000 0x3f78
+ [tid:22488] Section .data Start 0x4000 0x4388
+ [tid:22488] Section .rsrc Start 0x5000 0x51e0
+ [tid:22488] Section .reloc Start 0x6000 0x61b4
+ [tid:22488] Watch C:\Windows\SysWOW64\kernel32.dll : LoadLibraryW [1] 0x749c1d40
+ [tid:22488] Watch C:\Windows\SysWOW64\kernel32.dll : LoadLibraryA [1] 0x749c1c70
+ [tid:22488] Watch C:\Windows\SysWOW64\kernel32.dll : GetProcAddress [2] 0x749bff90
+ [tid:22488] Watch C:\Windows\SysWOW64\kernel32.dll : CreateFileW [6] 0x749c35a0
+ [tid:22488] Watch C:\Windows\SysWOW64\kernel32.dll : LoadLibraryExW [1] 0x749bf890
+ [tid:10688] Watch C:\Windows\SysWOW64\advapi32.dll : RegQueryValueW [3] 0x7726d1f0
+ [tid:10688] Watch C:\Windows\SysWOW64\advapi32.dll : RegOpenKeyExW [2] 0x7726cf90
+ [tid:22488] regex match success initterm_e
+ [tid:22488] regex match success set_app_type
+ [tid:22488] regex match success set_fmode
+ [tid:22488] regex match success _p__commode
+ [tid:22488] regex match success crt_atexit
+ [tid:22488] regex match success configure_narrow_argv
+ [tid:22488] regex match success controlfp_s
+ [tid:22488] regex match success configthreadlocale
+ [tid:22488] regex match success initialize_narrow_environment
+ [tid:22488] regex match success [initterm_e+47]*
+ [tid:22488] regex match success [initterm_e+47]*
+ [tid:22488] regex match success initterm
+ [tid:22488] regex match success set_new_mode
+ [tid:22488] regex match success [initterm+38]*
+ [tid:22488] regex match success get_initial_narrow_environment
+ [tid:22488] regex match success _p___argv
+ [tid:22488] regex match success _p___argc
+ [tid:22488] regex match success ??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@P6AAAVios_base@1@AAV21@@Z@Z
+ [tid:22488] regex match success [??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@P6AAAVios_base@1@AAV21@@Z@Z+1a]*
+ [tid:22488] regex match success [?_Init@ios_base@std@@IAEXXZ+a0]*
+ [tid:22488] regex match success ?sputn@?$basic_streambuf@DU?$char_traits@D@std@@@std@@QAE_JPBD_J@Z
+ [tid:22488] regex match success ?setstate@?$basic_ios@DU?$char_traits@D@std@@@std@@QAEXH_N@Z
+ [tid:22488] regex match success ?uncaught_exception@std@@YA_NXZ
+ [tid:22488] regex match success ?_Osfx@?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEXXZ
+ [tid:22488] regex match success [?_Tidy@ios_base@std@@AAEXXZ+b0]*
+ [tid:22488] regex match success ??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@J@Z
+ [tid:22488] regex match success ??5?$basic_istream@_WU?$char_traits@_W@std@@@std@@QAEAAV01@P6AAAV01@AAV01@@Z@Z
+ [tid:22488] regex match success ?widen@?$basic_ios@DU?$char_traits@D@std@@@std@@QBEDD@Z
+ [tid:22488] regex match success ?put@?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV12@D@Z
+ [tid:22488] regex match success ?flush@?$basic_ostream@_WU?$char_traits@_W@std@@@std@@QAEAAV12@XZ
+ [tid:22488] regex match success [??5?$basic_istream@_WU?$char_traits@_W@std@@@std@@QAEAAV01@P6AAAV01@AAV01@@Z@Z+10]*
+ [tid:22488] regex match success exit
+ [tid:22488] regex match success [execute_onexit_table+152]*
+ [tid:22488] Application Exit , Code 0

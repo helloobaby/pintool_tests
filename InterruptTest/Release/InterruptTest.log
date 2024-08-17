@@ -1,0 +1,9 @@
+﻿  Assembling int2d_x64.asm...
+int2d_x64.asm(1): error A2013: .MODEL must precede this directive
+int2d_x64.asm(3): error A2034: must be in segment block : __int2d
+int2d_x64.asm(4): error A2034: must be in segment block
+int2d_x64.asm(5): error A2034: must be in segment block
+int2d_x64.asm(6): error A2034: must be in segment block
+int2d_x64.asm(7): error A2034: must be in segment block
+int2d_x64.asm(8): fatal error A1010: unmatched block nesting : __int2d
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\BuildCustomizations\masm.targets(70,5): error MSB3721: 命令“ml.exe /c /nologo /Zi /Fo"Release\int2d_x64.obj" /W3 /errorReport:prompt  /Taint2d_x64.asm”已退出，返回代码为 1。
