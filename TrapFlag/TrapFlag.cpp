@@ -11,6 +11,7 @@ static LONG CALLBACK VectoredHandler(
 )
 {
 	std::cout << "Exec VectoredHandler\n";
+	//
 	std::cout << std::hex << "ExceptionInfo->ContextRecord->Rip" << ExceptionInfo->ContextRecord->Rip << std::endl;
 
 	SwallowedException = FALSE;
@@ -38,7 +39,7 @@ int main()
 		__writeeflags(eflags);
 	}
 	catch (...) {
-		std::cout << "Enter SEH\n";
+		std::cout << "Enter SEH\n";  // SEH捕获不了这种硬件相关的异常的
 	}
 
 

@@ -5,14 +5,10 @@
 #include <Windows.h>
 
 _declspec(naked) int f() {
-    DWORD expectedAddr, foundAddr;
     __asm {
         xor eax, eax;
         xor edx, edx;
         int 0x2e;
-    nextAddr:
-        mov foundAddr, edx;
-        mov expectedAddr, offset nextAddr;
     }
 }
 int main()
@@ -21,8 +17,9 @@ int main()
         std::cout << f();
     }
     __except (1) {
-
+        std::cout << "exception \n";
     }
+    std::cout << "exit\n";
     return 0;
 }
 

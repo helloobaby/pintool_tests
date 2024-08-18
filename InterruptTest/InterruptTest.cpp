@@ -5,16 +5,18 @@
 #include <Windows.h>
 BOOL IsDebuggerPresent_Int2d()
 {
-    //__try
-    //{
-    //    __asm int 0x2d
-    //}
-    //__except (1)
-    //{
-    //    return FALSE;
-    //}
+#ifndef _WIN64
+    __try
+    {
+        __asm int 0x2d
+    }
+    __except (1)
+    {
+        return FALSE;
+    }
 
-    //return TRUE;
+    return TRUE;
+#endif
     return false;
 }
 
@@ -27,9 +29,13 @@ static LONG CALLBACK VectoredHandler(
     _In_ PEXCEPTION_POINTERS ExceptionInfo
 )
 {
-    std::cout << "enter my veh\n";
+    std::cout << "enter my veh\n";  // pin 不抛异常的话不走这里
     SwallowedException = FALSE;
     if (ExceptionInfo->ExceptionRecord->ExceptionCode == EXCEPTION_BREAKPOINT)
+    {
+        //The Int 2D instruction already increased EIP/RIP so we don't do that (although it wouldnt hurt).
+        return EXCEPTION_CONTINUE_EXECUTION;
+    }else if (ExceptionInfo->ExceptionRecord->ExceptionCode == EXCEPTION_BREAKPOINT)
     {
         //The Int 2D instruction already increased EIP/RIP so we don't do that (although it wouldnt hurt).
         return EXCEPTION_CONTINUE_EXECUTION;
@@ -37,30 +43,22 @@ static LONG CALLBACK VectoredHandler(
     return EXCEPTION_CONTINUE_SEARCH;
 }
 
-//#define NOCATCH
 BOOL Interrupt_0x2d()
 {
-#ifndef NOCATCH
     PVOID Handle = AddVectoredExceptionHandler(1, VectoredHandler);
-#endif // !NOCATCH
 
     SwallowedException = TRUE;
     std::cout << "执行 int2d \n";
-    __int2d();
-#ifndef NOCATCH
+    __int2d(); // pin 执行int2d不会抛异常
+               // 说明pin int2d是模拟执行的,而不是直接执行的
+    
     RemoveVectoredExceptionHandler(Handle);
-#endif // !NOCATCH
 
     return SwallowedException;
 }
 int main()
-{
-    if (IsDebuggerPresent_Int2d())
-        std::cout << "Debugger present\n";
-    else {
-        std::cout << "OK\n";
-    }
-    
+{   
+    std::cout << "Current Thread id" << std::hex << GetCurrentThreadId() << std::endl;
     if (Interrupt_0x2d()) {
         std::cout << "Debugger present2\n";
     }
@@ -68,6 +66,7 @@ int main()
         std::cout << "OK2\n";
     }
 
+    // Get Rip 
     std::cout << std::hex << __syscall();
     
     return 0;

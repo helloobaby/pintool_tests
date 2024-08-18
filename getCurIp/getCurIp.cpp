@@ -4,8 +4,8 @@
 #include <iostream>
 _declspec(naked) int f() {
     _asm {
-        call $ + 5          // 生成 `e8 00 00 00 00`
-        pop eax           // 将下一条指令的地址弹入 EAX
+        call $ + 5          // Pin应该会修复所有跟地址有关的,比如这里call push到栈上的地址,会修复成原来程序正常运行的
+        pop eax           
         ret
     }
 }
